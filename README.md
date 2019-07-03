@@ -10,8 +10,8 @@ LIRI can search from one of the following commands:
 * movie-this
 * do-what-it-says
 
-## What will it show me?
-1. **If you type: node liri.js concert-this <artist/band name here>
+## What will it show me? 
+**If you type: node liri.js concert-this <artist/band name here>
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
