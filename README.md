@@ -1,6 +1,6 @@
 # LIRI-Bot
 
-This application is LIRI-Bot! LIRI is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information from Spotify, Bands in Town, and OMDB.
+This application is LIRI-Bot! LIRI is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
 ## How does it work?
 Type in a search query and specification, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies.
@@ -11,7 +11,7 @@ LIRI can search from one of the following commands:
 * do-what-it-says
 
 ## What will it show me? 
-1. **If you type: node liri.js concert-this <artist/band name here>**
+1. **If you type: node liri.js concert-this `<artist/band name here>`**
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
@@ -19,7 +19,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 * Venue location
 * Date of the Event 
 
-2. **If you type: node liri.js spotify-this-song '<song name here>'**
+2. **If you type: node liri.js spotify-this-song `<song name here>`**
 
 This will show the following information about the song in your terminal/bash window:
 
@@ -28,9 +28,9 @@ This will show the following information about the song in your terminal/bash wi
 * A preview link of the song from Spotify
 * The album that the song is from
 
-3. **If you type: node liri.js movie-this '<movie name here>'**
+3. **If you type: node liri.js movie-this `<movie name here>`**
   
-This will show the following information about the song in your terminal/bash window:
+This will show the following information about the movie in your terminal/bash window:
 
   * Title of the movie.
   * Year the movie came out.
@@ -41,7 +41,7 @@ This will show the following information about the song in your terminal/bash wi
   * Plot of the movie.
   * Actors in the movie.
 
-4. **If you type: node liri.js do-what-it-says**
+4. **If you type: node liri.js `<do-what-it-says>`**
 
-Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
