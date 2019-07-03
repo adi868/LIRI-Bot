@@ -1,5 +1,5 @@
 # LIRI-Bot
-## Overview
+
 This application is LIRI-Bot! LIRI is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
 ### How does it work?
