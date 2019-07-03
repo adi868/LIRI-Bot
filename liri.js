@@ -9,7 +9,7 @@ var axios = require("axios");
 //install moment
 var moment = require("moment")
 //install spotify API
-var Spotify= require("node-spotify-api");
+var Spotify = require("node-spotify-api");
 var fs = require("fs")
 //install chalk
 const chalk = require('chalk');
@@ -22,8 +22,7 @@ var spotify = new Spotify(keys.spotify)
 
 
 inquirer
-    .prompt([
-        {
+    .prompt([{
             type: "list",
             message: (chalk.blue("Welcome to LIRI-Bot!")) + "\n" + "Which command do you want to run?",
             name: "command",
@@ -35,12 +34,52 @@ inquirer
             name: "confirm",
             default: true
         }
-    ]).then(function(inquirerResponse) {
-            //if inquirer response confirms, will display this
-            if (inquirerResponse.confirm) {
-                console.log("OK!")
-     }
-else{
-    console.log("Ok, let's try that again")
-}
-});
+    ]).then(function (inquirerResponse, err) {
+        //if inquirer response confirms, will display this
+        if (inquirerResponse.confirm && inquirerResponse.command == "concert-this") {
+            console.log("OK!")
+            inquirer
+                .prompt([{
+                    type: "input",
+                    message: "Search for the artist you would like:",
+                    name: "concert"
+                }])
+                .then(function (concertResponse, err) {
+                    //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
+                    var answerC = concertResponse.concert.split(" ").join(" ").toLowerCase();
+                    //add function for searching API 
+                    console.log(answerC)
+                })
+        } else if (inquirerResponse.confirm && inquirerResponse.command == "spotify-this-song") {
+            inquirer
+                .prompt([{
+                    type: "input",
+                    message: "Search for the song you would like:",
+                    name: "song"
+                }])
+                .then(function (songResponse, err) {
+                    //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
+                    var answerS = songResponse.song.split(" ").join(" ").toLowerCase();
+                    //add function for searching API 
+                    console.log(answerS)
+                })
+
+        } else if (inquirerResponse.confirm && inquirerResponse.command == "movie-this") {
+            inquirer
+                .prompt([{
+                    type: "input",
+                    message: "Search for the movie you would like:",
+                    name: "movie"
+                }])
+                .then(function (movieResponse, err) {
+                    //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
+                    var answerM = movieResponse.movie.split(" ").join(" ").toLowerCase();
+                    //add function for searching API 
+                    console.log(answerM)
+                })
+        } else if (inquirerResponse.confirm && inquirerResponse.command == "do-what-it-says") {
+            doWhatItSays();
+        } else {
+            console.log("Ok, let's try that again")
+        }
+    });
