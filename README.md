@@ -11,7 +11,7 @@ LIRI can search from one of the following commands:
 * do-what-it-says
 
 ## What will it show me? 
-**If you type: node liri.js concert-this <artist/band name here>
+1. **If you type: node liri.js concert-this <artist/band name here>**
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
@@ -19,7 +19,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 * Venue location
 * Date of the Event 
 
-**If you type: node liri.js spotify-this-song '<song name here>'
+2. **If you type: node liri.js spotify-this-song '<song name here>'**
 
 This will show the following information about the song in your terminal/bash window:
 
@@ -28,7 +28,7 @@ This will show the following information about the song in your terminal/bash wi
 * A preview link of the song from Spotify
 * The album that the song is from
 
-**If you type: node liri.js movie-this '<movie name here>'
+3. **If you type: node liri.js movie-this '<movie name here>'**
   
 This will show the following information about the song in your terminal/bash window:
 
@@ -41,7 +41,7 @@ This will show the following information about the song in your terminal/bash wi
   * Plot of the movie.
   * Actors in the movie.
 
-**If you type: node liri.js do-what-it-says
+4. **If you type: node liri.js do-what-it-says**
 
 Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
