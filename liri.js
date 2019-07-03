@@ -34,7 +34,7 @@ inquirer
             name: "confirm",
             default: true
         }
-    ]).then(function (inquirerResponse, err) {
+    ]).then(function (inquirerResponse) {
         //if inquirer response confirms, will display this
         if (inquirerResponse.confirm && inquirerResponse.command == "concert-this") {
             console.log("OK!")
@@ -42,13 +42,14 @@ inquirer
                 .prompt([{
                     type: "input",
                     message: "Search for the artist you would like:",
-                    name: "concert"
+                    name: "artist"
                 }])
-                .then(function (concertResponse, err) {
+                .then(function (concertResponse) {
                     //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
-                    var answerC = concertResponse.concert.split(" ").join(" ").toLowerCase();
-                    //add function for searching API 
+                    var answerC = concertResponse.artist.split(" ").join(" ").toLowerCase();
                     console.log(answerC)
+                    //function for searching API 
+                    goConcert(answerC);
                 })
         } else if (inquirerResponse.confirm && inquirerResponse.command == "spotify-this-song") {
             inquirer
@@ -57,7 +58,7 @@ inquirer
                     message: "Search for the song you would like:",
                     name: "song"
                 }])
-                .then(function (songResponse, err) {
+                .then(function (songResponse) {
                     //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
                     var answerS = songResponse.song.split(" ").join(" ").toLowerCase();
                     //add function for searching API 
@@ -71,15 +72,40 @@ inquirer
                     message: "Search for the movie you would like:",
                     name: "movie"
                 }])
-                .then(function (movieResponse, err) {
+                .then(function (movieResponse) {
                     //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
                     var answerM = movieResponse.movie.split(" ").join(" ").toLowerCase();
                     //add function for searching API 
                     console.log(answerM)
                 })
         } else if (inquirerResponse.confirm && inquirerResponse.command == "do-what-it-says") {
-            doWhatItSays();
+            // doWhatItSays();
+            console.log("under construction")
         } else {
             console.log("Ok, let's try that again")
         }
     });
+
+//create the concert constructor. uses bands in town to find the concert details
+var goConcert = function() {
+        //creates space between text
+        var divider = "\n------------------------------------------------------------\n\n";
+        //takes the name of the artist and searches the bands in town API
+            var URL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
+            axios.get(URL).then(function(response) {
+                //puts the response data into a variable
+                var jsonData = response.data;
+                var formatMoment = moment(jsonData.datetime).format("MM/DD/YYYY");
+                var concertData = [
+                    "Venue Name: " + jsonData.venue.name,
+                    "Venue Location: " + jsonData.venue.city,
+                    "Date of the Event: " + formatMoment
+                ].join("\n\n");
+
+                // Append showData and the divider to log.txt, print showData to the console
+                fs.appendFile("record.txt", concertData + divider, function (err) {
+                    if (err) throw err;
+                    console.log(concertData);
+                });
+            })
+        };
