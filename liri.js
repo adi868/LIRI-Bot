@@ -83,22 +83,21 @@ inquirer
 function goConcert(answerC) {
     //creates space between text
     var divider = "\n------------------------------------------------------------\n\n";
-    if (answerM === "") {
+    if (answerC === "") {
         console.log("No artist was provided!")
     };
     //takes the name of the artist and searches the bands in town API
-    axios.get("https://rest.bandsintown.com/artists/" + answerC + "/events?app_id=codingbootcamp").then(function (response) {
-            //puts the response data into a variable
-            var jsonData = response.data;
-            var formatMoment = moment(jsonData.datetime).format("MM/DD/YYYY");
+    axios.get("https://rest.bandsintown.com/artists/" + answerC + "/events?app_id=codingbootcamp").then(function(response) {
+        for (i = 0; i < response.data.length; i++){ 
+            var formatMoment = moment(response.data[i].datetime).format("MM/DD/YYYY");
             var concertData = [
-                "Venue Name: " + jsonData.venue.name,
-                "Venue Location: " + jsonData.venue.city,
+                "Venue Name: " + response.data[i].venue.name,
+                "Venue Location: " + response.data[i].venue.city,
                 "Date of the Event: " + formatMoment
             ].join("\n\n");
             console.log(divider);
             console.log(concertData + "\n");
-        })
+        }})
         .catch(function (error) {
             return console.log(error);
         });
