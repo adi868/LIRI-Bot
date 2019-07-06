@@ -2,23 +2,15 @@
 //requires .env file
 require("dotenv").config();
 
-//npm install inquirer
 var inquirer = require("inquirer");
-//install axios
 var axios = require("axios");
-//install moment
-var moment = require("moment")
-//install spotify API
-var Spotify = require("node-spotify-api");
+var moment = require("moment");
+var spotifyAPI = require("node-spotify-api");
 var fs = require("fs")
-//install chalk
 const chalk = require('chalk');
-
 //import js file and store in variable. require keys file for API keys
-var keys = require("./keys.js")
-
-//access Spotify keys information
-var spotify = new Spotify(keys.spotify)
+var keys = require("./keys.js");
+var spotify = new spotifyAPI(keys.spotify)
 
 
 inquirer
@@ -30,7 +22,7 @@ inquirer
         },
         {
             type: "confirm",
-            message: "Are you sure?",
+            message: (chalk.green("Are you sure?")),
             name: "confirm",
             default: true
         }
@@ -61,8 +53,9 @@ inquirer
                 .then(function (songResponse) {
                     //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
                     var answerS = songResponse.song.split(" ").join(" ").toLowerCase();
-                    //add function for searching API 
                     console.log(answerS)
+                    //function for searching API 
+                    goSong(answerS);
                 })
 
         } else if (inquirerResponse.confirm && inquirerResponse.command == "movie-this") {
@@ -75,37 +68,111 @@ inquirer
                 .then(function (movieResponse) {
                     //makes string into array then replaces commas in between array with spaces. checks and cleans for extra spaces
                     var answerM = movieResponse.movie.split(" ").join(" ").toLowerCase();
-                    //add function for searching API 
                     console.log(answerM)
+                    //function for searching API 
+                    goMovie(answerM);
                 })
         } else if (inquirerResponse.confirm && inquirerResponse.command == "do-what-it-says") {
-            // doWhatItSays();
-            console.log("under construction")
+            doWhatItSays();
         } else {
-            console.log("Ok, let's try that again")
+            console.log("Ok, let's try that again" + "\n")
         }
     });
 
 //create the concert constructor. uses bands in town to find the concert details
-var goConcert = function() {
-        //creates space between text
-        var divider = "\n------------------------------------------------------------\n\n";
-        //takes the name of the artist and searches the bands in town API
-            var URL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
-            axios.get(URL).then(function(response) {
-                //puts the response data into a variable
-                var jsonData = response.data;
-                var formatMoment = moment(jsonData.datetime).format("MM/DD/YYYY");
-                var concertData = [
-                    "Venue Name: " + jsonData.venue.name,
-                    "Venue Location: " + jsonData.venue.city,
-                    "Date of the Event: " + formatMoment
-                ].join("\n\n");
+function goConcert(answerC) {
+    //creates space between text
+    var divider = "\n------------------------------------------------------------\n\n";
+    if (answerM === "") {
+        console.log("No artist was provided!")
+    };
+    //takes the name of the artist and searches the bands in town API
+    axios.get("https://rest.bandsintown.com/artists/" + answerC + "/events?app_id=codingbootcamp").then(function (response) {
+            //puts the response data into a variable
+            var jsonData = response.data;
+            var formatMoment = moment(jsonData.datetime).format("MM/DD/YYYY");
+            var concertData = [
+                "Venue Name: " + jsonData.venue.name,
+                "Venue Location: " + jsonData.venue.city,
+                "Date of the Event: " + formatMoment
+            ].join("\n\n");
+            console.log(divider);
+            console.log(concertData + "\n");
+        })
+        .catch(function (error) {
+            return console.log(error);
+        });
+}
 
-                // Append showData and the divider to log.txt, print showData to the console
-                fs.appendFile("record.txt", concertData + divider, function (err) {
-                    if (err) throw err;
-                    console.log(concertData);
-                });
-            })
-        };
+function goSong(answerS) {
+    //creates space between text
+    var divider = "\n------------------------------------------------------------\n\n";
+    if (answerS === "") {
+        answerS = "The Sign Ace of Base"
+    };
+    spotify.search({
+            type: "track",
+            query: answerS
+        }, function (error, response) {
+            if (error)
+                return console.log(error);
+
+            var songData = [
+                "Artist: " + response.tracks.items[0].artists[0].name,
+                "Song Name: " + response.tracks.items[0].name,
+                "Preview of link: " + response.tracks.items[0].external_urls.spotify,
+                "Album: " + response.tracks.items[0].album.name
+            ].join("\n\n");
+            console.log(divider);
+            console.log(songData + "\n");
+        })
+}
+
+function goMovie(answerM) {
+    if (answerM === "") {
+        console.log("If you haven't watched 'Mr. Nobody', then you should: http://www.imdb.com/title/tt0485947/" + "\n");
+        console.log("Its on Netflix!" + "\n")
+    };
+    var divider = "\n------------------------------------------------------------\n\n";
+    axios.get("http://www.omdbapi.com/?t=" + answerM + "&y=&plot=short&apikey=trilogy")
+        .then(function (response) {
+            var movieData = [
+                "Title: " + response.data.Title,
+                "Year: " + response.data.Year,
+                "IMDB Rating: " + response.data.imdbRating,
+                "Rotten Tomatoes Rating: " + response.data.Ratings[1].Value,
+                "Country Produced: " + response.data.Country,
+                "Language: " + response.data.Language,
+                "Plot Description: " + response.data.Plot,
+                "Actors: " + response.data.Actors
+            ].join("\n\n");
+            console.log(divider);
+            console.log(movieData + "\n");
+        })
+        .catch(function (error) {
+            return console.log(error);
+        });
+}
+
+//reads the command typed on random.txt
+var doWhatItSays = function () {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        var dataArray = data.split(",");
+        switch (dataArray[0]) {
+            case "spotify-this-song":
+                goSong(dataArray[1]);
+                break;
+            case "concert-this":
+                goConcert(dataArray[1]);
+                break;
+            case "movie-this":
+                goMovie(dataArray[1]);
+                break;
+            default:
+                console.log("File not working");
+        }
+    });
+};
