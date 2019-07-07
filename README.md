@@ -28,6 +28,8 @@ This will show the following information about the song in your terminal/bash wi
 * A preview link of the song from Spotify
 * The album that the song is from
 
+If no song is entered, it will default to The Sign.
+
 3. **If you type: `node liri.js movie-this <movie name here>`**
   
 This will show the following information about the movie in your terminal/bash window:
@@ -41,7 +43,21 @@ This will show the following information about the movie in your terminal/bash w
   * Plot of the movie.
   * Actors in the movie.
 
+If no movie title is entered, it will default to Mr. Nobody.
+
 4. **If you type: `node liri.js <do-what-it-says>`**
 
 LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
+### Technologies Used:
+* JavaScript
+* Moment.js
+* Node.js
+* JSON
+* Axios
+* Spotify API
+* OMDB API
+* Bands In Town API
+
+### Developer:
+Adina Cianciotto
