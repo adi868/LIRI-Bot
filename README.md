@@ -3,14 +3,13 @@
 LIRI-Bot is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
 ### How does it work?
-Type in a search query and specification, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies.
-LIRI can search from one of the following commands:
+Type in a search query and command prompt, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies. Enter `node liri.js command-prompt` in the terminal, specifing which command you would like. LIRI can search from one of the following commands:
 * concert-this
 * spotify-this-song
 * movie-this
 * do-what-it-says
 
-### What will it show me? 
+**Choice Options:**
 1. **If you type: `node liri.js concert-this <artist/band name here>`**
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
