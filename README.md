@@ -12,7 +12,7 @@ Type in a search query and command prompt, and LIRI will search Spotify for song
 **Choice Options:**
 1. **If you type: `node liri.js concert-this <artist/band name here>`**
 
-This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
+LIRI will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
 * Name of the venue
 * Venue location
@@ -20,7 +20,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 
 2. **If you type: `node liri.js spotify-this-song <song name here>`**
 
-This will show the following information about the song in your terminal/bash window:
+LIRI will show the following information about the song in your terminal/bash window:
 
 * Artist(s)
 * The song's name
@@ -31,7 +31,7 @@ If no song is entered, it will default to The Sign.
 
 3. **If you type: `node liri.js movie-this <movie name here>`**
   
-This will show the following information about the movie in your terminal/bash window:
+LIRI will show the following information about the movie in your terminal/bash window:
 
   * Title of the movie.
   * Year the movie came out.
