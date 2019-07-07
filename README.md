@@ -3,7 +3,7 @@
 LIRI-Bot is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
 ### How does it work?
-Type in a search query and command prompt, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies. Enter `node liri.js command-prompt` in the terminal, specifing which command you would like. LIRI can search from one of the following commands:
+Type in a search query and command prompt, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies. Enter `node liri.js` in the terminal, then specify which command you would like. LIRI can search from one of the following commands:
 * concert-this
 * spotify-this-song
 * movie-this
@@ -18,6 +18,8 @@ LIRI will search the Bands in Town Artist Events API for an artist and render th
 * Venue location
 * Date of the Event 
 
+![Concert-This](https://media.giphy.com/media/fSej2InAF7975XmMD3/giphy.gif)
+
 2. **If you type: `node liri.js spotify-this-song <song name here>`**
 
 LIRI will show the following information about the song in your terminal/bash window:
@@ -28,6 +30,8 @@ LIRI will show the following information about the song in your terminal/bash wi
 * The album that the song is from
 
 If no song is entered, it will default to The Sign.
+
+![Spotify-This-Song](https://media.giphy.com/media/Yo25sJ6xFS9zk2olqR/giphy.gif)
 
 3. **If you type: `node liri.js movie-this <movie name here>`**
   
@@ -44,9 +48,13 @@ LIRI will show the following information about the movie in your terminal/bash w
 
 If no movie title is entered, it will default to Mr. Nobody.
 
+![Movie-This](https://media.giphy.com/media/VInAruJAibtkXWgfAL/giphy.gif)
+
 4. **If you type: `node liri.js <do-what-it-says>`**
 
 LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
+
+![Do-What-It-Says](https://media.giphy.com/media/L3WJPNLRIoPHRZecoz/giphy.gif)
 
 ### Technologies Used:
 * JavaScript
