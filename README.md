@@ -10,7 +10,7 @@ Type in a search query and command prompt, and LIRI will search Spotify for song
 * do-what-it-says
 
 **Choice Options:**
-1. **If you type: `node liri.js concert-this <artist/band name here>`**
+1. **If you enter: `node liri.js concert-this <artist/band name here>`**
 
 LIRI will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
@@ -20,7 +20,7 @@ LIRI will search the Bands in Town Artist Events API for an artist and render th
 
 ![Concert-This](https://media.giphy.com/media/fSej2InAF7975XmMD3/giphy.gif)
 
-2. **If you type: `node liri.js spotify-this-song <song name here>`**
+2. **If you enter: `node liri.js spotify-this-song <song name here>`**
 
 LIRI will show the following information about the song in your terminal/bash window:
 
@@ -33,7 +33,7 @@ If no song is entered, it will default to The Sign.
 
 ![Spotify-This-Song](https://media.giphy.com/media/Yo25sJ6xFS9zk2olqR/giphy.gif)
 
-3. **If you type: `node liri.js movie-this <movie name here>`**
+3. **If you enter: `node liri.js movie-this <movie name here>`**
   
 LIRI will show the following information about the movie in your terminal/bash window:
 
@@ -50,7 +50,7 @@ If no movie title is entered, it will default to Mr. Nobody.
 
 ![Movie-This](https://media.giphy.com/media/VInAruJAibtkXWgfAL/giphy.gif)
 
-4. **If you type: `node liri.js <do-what-it-says>`**
+4. **If you enter: `node liri.js <do-what-it-says>`**
 
 LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
