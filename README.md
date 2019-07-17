@@ -1,36 +1,41 @@
 # LIRI-Bot
 
-This application is LIRI-Bot! LIRI is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
+LIRI-Bot is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
 ### How does it work?
-Type in a search query and specification, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies.
-LIRI can search from one of the following commands:
+Type in a search query and command prompt, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies. Enter `node liri.js` in the terminal, then specify which command you would like. LIRI can search from one of the following commands:
 * concert-this
 * spotify-this-song
 * movie-this
 * do-what-it-says
 
-### What will it show me? 
-1. **If you type: `node liri.js concert-this <artist/band name here>`**
+**Choice Options:**
+1. **If you enter: `node liri.js concert-this <artist/band name here>`**
 
-This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
+LIRI will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
 * Name of the venue
 * Venue location
 * Date of the Event 
 
-2. **If you type: `node liri.js spotify-this-song <song name here>`**
+![Concert-This](https://media.giphy.com/media/fSej2InAF7975XmMD3/giphy.gif)
 
-This will show the following information about the song in your terminal/bash window:
+2. **If you enter: `node liri.js spotify-this-song <song name here>`**
+
+LIRI will show the following information about the song in your terminal/bash window:
 
 * Artist(s)
 * The song's name
 * A preview link of the song from Spotify
 * The album that the song is from
 
-3. **If you type: `node liri.js movie-this <movie name here>`**
+If no song is entered, it will default to The Sign.
+
+![Spotify-This-Song](https://media.giphy.com/media/Yo25sJ6xFS9zk2olqR/giphy.gif)
+
+3. **If you enter: `node liri.js movie-this <movie name here>`**
   
-This will show the following information about the movie in your terminal/bash window:
+LIRI will show the following information about the movie in your terminal/bash window:
 
   * Title of the movie.
   * Year the movie came out.
@@ -41,7 +46,25 @@ This will show the following information about the movie in your terminal/bash w
   * Plot of the movie.
   * Actors in the movie.
 
-4. **If you type: `node liri.js <do-what-it-says>`**
+If no movie title is entered, it will default to Mr. Nobody.
+
+![Movie-This](https://media.giphy.com/media/VInAruJAibtkXWgfAL/giphy.gif)
+
+4. **If you enter: `node liri.js <do-what-it-says>`**
 
 LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
+![Do-What-It-Says](https://media.giphy.com/media/L3WJPNLRIoPHRZecoz/giphy.gif)
+
+### Technologies Used:
+* JavaScript
+* Moment.js
+* Node.js
+* JSON
+* Axios
+* Spotify API
+* OMDB API
+* Bands In Town API
+
+### Developer:
+Adina Cianciotto
