@@ -30,7 +30,7 @@ LIRI will show the following information about the song in your terminal/bash wi
 * A preview link of the song from Spotify
 * The album that the song is from
 
-If no song is entered, it will default to The Sign.
+If no song is entered, it will default to 'The Sign'.
 
 ![Spotify-This-Song](https://media.giphy.com/media/Yo25sJ6xFS9zk2olqR/giphy.gif)
 
