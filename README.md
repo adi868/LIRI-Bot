@@ -51,7 +51,7 @@ If no movie title is entered, it will default to Mr. Nobody.
 
 ![Movie-This](https://media.giphy.com/media/VInAruJAibtkXWgfAL/giphy.gif)
 
-4. **If you enter: `node liri.js <do-what-it-says>`**
+4. **If You Enter: `node liri.js <do-what-it-says>`**
 
 LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
@@ -67,5 +67,5 @@ LIRI will take the text inside of random.txt and then use it to call one of LIRI
 * OMDB API
 * Bands In Town API
 
-### Developer:
-Adina Cianciotto
+---
+© 2019 Adina Cianciotto adi868
