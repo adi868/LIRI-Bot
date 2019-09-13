@@ -57,6 +57,16 @@ LIRI will take the text inside of random.txt and then use it to call one of LIRI
 
 ![Do-What-It-Says](https://media.giphy.com/media/L3WJPNLRIoPHRZecoz/giphy.gif)
 
+### Installation:
+1. Clone the GitHub repository LIRI-Bot to your computer.
+2. LIRI relies on Node.js. To retrieve the data that will power this app, it needs to send requests using the axios package to the Bands in Town, Spotify and OMDB APIs. These node packages are necessary for installation:
+* Node-Spotify-API
+* Axios
+* Moment
+* DotEnv
+3. To install these packages, type in `npm` followed by the name of the requested package.
+4. From there, you can follow the command prompts listed above.
+
 ### Technologies Used:
 * JavaScript
 * Moment.js
