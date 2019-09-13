@@ -3,7 +3,7 @@
 ## Overview 
 LIRI-Bot is a Language Interpretation and Recognition Interface. It is a command line node app that takes in parameters and gives back data. Interact with LIRI for up-to-date information on songs, concerts, and movies.
 
-### How does it work?
+### How Does It Work?
 Type in a search query and command prompt, and LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies. Enter `node liri.js` in the terminal, then specify which command you would like. LIRI can search from one of the following commands:
 * concert-this
 * spotify-this-song
@@ -11,7 +11,7 @@ Type in a search query and command prompt, and LIRI will search Spotify for song
 * do-what-it-says
 
 **Choice Options:**
-1. **If you enter: `node liri.js concert-this <artist/band name here>`**
+1. **If You Enter: `node liri.js concert-this <artist/band name here>`**
 
 LIRI will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
@@ -21,7 +21,7 @@ LIRI will search the Bands in Town Artist Events API for an artist and render th
 
 ![Concert-This](https://media.giphy.com/media/fSej2InAF7975XmMD3/giphy.gif)
 
-2. **If you enter: `node liri.js spotify-this-song <song name here>`**
+2. **If You Enter: `node liri.js spotify-this-song <song name here>`**
 
 LIRI will show the following information about the song in your terminal/bash window:
 
@@ -34,7 +34,7 @@ If no song is entered, it will default to 'The Sign'.
 
 ![Spotify-This-Song](https://media.giphy.com/media/Yo25sJ6xFS9zk2olqR/giphy.gif)
 
-3. **If you enter: `node liri.js movie-this <movie name here>`**
+3. **If You Enter: `node liri.js movie-this <movie name here>`**
   
 LIRI will show the following information about the movie in your terminal/bash window:
 
